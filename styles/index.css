@@ -59,6 +59,8 @@ body, html {
   transition: background-color 0.3s ease;
   cursor: pointer;
   margin-top: 1em;
+  color: #fff;
+  text-decoration: none;
 }
 
 .regras_button:hover {
