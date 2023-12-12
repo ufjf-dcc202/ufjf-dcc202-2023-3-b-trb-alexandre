@@ -19,7 +19,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -20em;
+  margin-top: -10em;
 }
 
 .titulo {
@@ -28,4 +28,39 @@ body, html {
 
 .subtitulo {
   font-size: 2em;
+}
+
+.buttons_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.start_button {
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  font-size: 1.5em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.start_button:hover {
+  background-color: #27ae60;
+}
+
+.regras_button {
+  padding: 10px 20px;
+  background-color: #333;
+  font-size: 1.5em;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.regras_button:hover {
+  background-color: #555;
 }
