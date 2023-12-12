@@ -1,0 +1,16 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.main_container {
+  min-height: 100%;
+  background-image: url('../images/floresta2.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
