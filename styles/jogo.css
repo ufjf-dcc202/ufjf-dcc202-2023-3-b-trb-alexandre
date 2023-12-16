@@ -95,6 +95,7 @@ body, html {
 .linha_soma {
   display: flex;
   background: rgba(0, 69, 21, 0.8);
+  border-radius: 5px;
 }
 
 .celula.sem_borda {
