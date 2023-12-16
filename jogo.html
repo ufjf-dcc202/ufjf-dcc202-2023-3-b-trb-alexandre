@@ -17,14 +17,14 @@
       <div class="player_info">
           <img src="./images/char.png">
           <h2>Você</h2>
-          <p class="score_text">Pontuação: <span >0</span></p>
+          <p class="score_text">Pontuação: <span id="pontuacao_player">0</span></p>
           <div class="caixa_numero">
-            <p class="dice_text">Valor do Dado: <span class="numero">...</span></p>
+            <p class="dice_text">Valor do Dado: <span id="dado_player">...</span></p>
           </div>
       </div>
 
       <div class="game_container">
-        <div class="tabela_player">
+        <div class="tabela_player" id="t_player">
           <div class="linha">
             <div class="celula"><span class="numero"></span></div>
             <div class="celula"><span class="numero"></span></div>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <div class="linha_soma">
+        <div class="linha_soma" id="s_player">
           <div class="celula sem_borda"><span class="numero"></span></div>
           <div class="celula sem_borda"><span class="numero"></span></div>
           <div class="celula sem_borda"><span class="numero"></span></div>
@@ -57,20 +57,20 @@
       <div class="player_info">
           <img src="./images/spirit.gif">
           <h2>Espírito da Floresta</h2>
-          <p class="score_text">Pontuação: <span >0</span></p>
+          <p class="score_text">Pontuação: <span id="pontuacao_enemy">0</span></p>
           <div class="caixa_numero">
-            <p class="dice_text">Valor do Dado: <span class="numero">...</span></p>
+            <p class="dice_text">Valor do Dado: <span id="dado_enemy">...</span></p>
           </div>
       </div>
 
       <div class="game_container justify_bottom">
-        <div class="linha_soma">
+        <div class="linha_soma" id="s_enemy">
           <div class="celula sem_borda"><span class="numero"></span></div>
           <div class="celula sem_borda"><span class="numero"></span></div>
           <div class="celula sem_borda"><span class="numero"></span></div>
         </div>
 
-        <div class="tabela_enemy">
+        <div class="tabela_enemy" id="t_enemy">
           <div class="linha">
             <div class="celula"><span class="numero"></span></div>
             <div class="celula"><span class="numero"></span></div>
