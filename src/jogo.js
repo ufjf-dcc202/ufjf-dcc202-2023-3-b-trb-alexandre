@@ -74,10 +74,6 @@ const setDocCelulasEnemy = (val) => {
 
 // FIM DAS VARIÁVEIS
 
-const rodada = () => {
-
-}
-
 const encontraLinhaVazia = (coluna, tabela) => {
   for (let i = 0; i < 3; i++) {
     if (tabela[i][coluna] == 0)
@@ -101,12 +97,88 @@ const atualizaDocTabelaEnemy = (linha, coluna, valor) => {
   docTabelaEnemy[linha * 3 + coluna].innerHTML = valor
 }
 
+const atualizaDocSoma = (docSomaPlayer, linha_soma_player) => {
+  linha_soma_player.forEach((valor, index) => {
+    docSomaPlayer[index].innerHTML = valor
+  })
+}
+
+const atualizaDocPontuacao = (docPontuacao, soma) => {
+  docPontuacao.innerHTML = soma
+}
+
+const contabilizaPontosColunas = (tabela) => {
+  const pontosColunas = [0, 0, 0];
+
+  for (let coluna = 0; coluna < 3; coluna++) {
+    const valoresColuna = tabela.map(linha => linha[coluna]);
+
+    valoresColuna.forEach(valor => {
+      const quantidade = valoresColuna.filter(v => v === valor).length;
+
+      pontosColunas[coluna] += valor * quantidade;
+    });
+  }
+
+  return pontosColunas
+}
+
+const retiraPossiveisValoresDaTabela = (coluna, valor, tabela) => {
+  for (let i = 0; i < 3; i++) {
+    if (tabela[i][coluna] === valor) {
+      tabela[i][coluna] = 0;
+    }
+  }
+
+  for (let linha = 1; linha < tabela.length; linha++) {
+    if (tabela[linha][coluna] !== 0) {
+      for (let i = linha; i > 0 && tabela[i - 1][coluna] === 0; i--) {
+        tabela[i - 1][coluna] = tabela[i][coluna];
+        tabela[i][coluna] = 0;
+      }
+    }
+  }
+
+  return tabela
+}
+
+const atualizaPlayer = () => {
+  docTabelaPlayer.forEach((span, index) => {
+    const linha = Math.floor(index / 3);
+    const coluna = index % 3;
+    span.innerHTML = tabela_player[linha][coluna];
+  });
+}
+
+const atualizaEnemy = () => {
+  docTabelaEnemy.forEach((span, index) => {
+    const linha = Math.floor(index / 3);
+    const coluna = index % 3;
+    span.innerHTML = tabela_enemy[linha][coluna];
+  });
+}
+
+const checaFimDeJogo = () => {
+  
+}
+
 const jogadaPlayer = () => {
   let linhaVazia = encontraLinhaVazia(coluna_player, tabela_player)
 
   if (linhaVazia != -1) {
     tabela_player = atualizaTabela(dado_player, linhaVazia, coluna_player, tabela_player)
     atualizaDocTabelaPlayer(linhaVazia, coluna_player, dado_player)
+    linha_soma_player = contabilizaPontosColunas(tabela_player)
+    pontuacao_player = arraySoma(linha_soma_player)
+    atualizaDocPontuacao(docPontuacaoPlayer, pontuacao_player)
+    atualizaDocSoma(docSomaPlayer, linha_soma_player)
+
+    tabela_enemy = retiraPossiveisValoresDaTabela(coluna_player, dado_player, tabela_enemy)
+    atualizaEnemy()
+    linha_soma_enemy = contabilizaPontosColunas(tabela_enemy)
+    pontuacao_enemy = arraySoma(linha_soma_enemy)
+    atualizaDocPontuacao(docPontuacaoEnemy, pontuacao_enemy)
+    atualizaDocSoma(docSomaEnemy, linha_soma_enemy)
     //...
 
     atualizaDadoEnemy()
@@ -131,6 +203,18 @@ const jogadaEnemy = () => {
 
   tabela_enemy = atualizaTabela(dado_enemy, linhaVazia, colunaAleatoria, tabela_enemy)
   atualizaDocTabelaEnemy(linhaVazia, colunaAleatoria, dado_enemy)
+
+  linha_soma_enemy = contabilizaPontosColunas(tabela_enemy)
+  pontuacao_enemy = arraySoma(linha_soma_enemy)
+  atualizaDocPontuacao(docPontuacaoEnemy, pontuacao_enemy)
+  atualizaDocSoma(docSomaEnemy, linha_soma_enemy)
+
+  tabela_player = retiraPossiveisValoresDaTabela(colunaAleatoria, dado_enemy, tabela_player)
+  atualizaPlayer()
+  linha_soma_player = contabilizaPontosColunas(tabela_player)
+  pontuacao_player = arraySoma(linha_soma_player)
+  atualizaDocPontuacao(docPontuacaoPlayer, pontuacao_player)
+  atualizaDocSoma(docSomaPlayer, linha_soma_player)
 }
 
 const geraColunaAleatoria = () => {
@@ -161,6 +245,16 @@ const diminuirColuna = () => {
   if (coluna_player > 0)
     coluna_player -= 1
   docColunaPlayer.innerHTML = coluna_player + 1
+}
+
+const arraySoma = (arr) => {
+  let soma = 0
+
+  arr.forEach((val) => {
+    soma += val
+  })
+
+  return soma
 }
 
 
