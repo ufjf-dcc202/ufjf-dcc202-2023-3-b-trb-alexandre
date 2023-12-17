@@ -164,7 +164,7 @@ const checaFimDeJogo = (tabela) => {
 
 const terminaJogo = () => {
   if (pontuacao_player > pontuacao_enemy) {
-    window.location.href = "../vitoria.html";
+    window.location.href = "https://ufjf-dcc202.github.io/ufjf-dcc202-2023-3-b-trb-alexandre/vitoria.html";
   }
   else {
     window.location.href = "../derrota.html"
