@@ -169,8 +169,6 @@ const terminaJogo = () => {
   else {
     window.location.href = "../derrota.html"
   }
-
-  return
 }
 
 const jogadaPlayer = () => {
@@ -193,6 +191,7 @@ const jogadaPlayer = () => {
 
     if (checaFimDeJogo(tabela_player)) {
       terminaJogo()
+      return
     }
 
     atualizaDadoEnemy()
@@ -231,6 +230,7 @@ const jogadaEnemy = () => {
 
   if (checaFimDeJogo(tabela_enemy)) {
     terminaJogo()
+    return
   }
 }
 
