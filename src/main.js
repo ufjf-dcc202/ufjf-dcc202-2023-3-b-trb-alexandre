@@ -45,9 +45,6 @@ setDocTabelaPlayer(docTabelaPlayer)
 const docSomaPlayer = document.querySelectorAll('#s_player .numero');
 setDocSomaPlayer(docSomaPlayer)
 
-const docCelulasPlayer = document.querySelectorAll('#t_player .celula');
-setDocCelulasPlayer(docCelulasPlayer)
-
 const docPontuacaoEnemy = document.querySelector('#pontuacao_enemy');
 setDocPontuacaoEnemy(docPontuacaoEnemy)
 
@@ -59,8 +56,5 @@ setDocTabelaEnemy(docTabelaEnemy)
 
 const docSomaEnemy = document.querySelectorAll('#s_enemy .numero');
 setDocSomaEnemy(docSomaEnemy)
-
-const docCelulasEnemy = document.querySelectorAll('#t_enemy .celula');
-setDocCelulasEnemy(docCelulasEnemy)
 
 atualizaDadoJogador()

@@ -42,11 +42,6 @@ const setDocSomaPlayer = (val) => {
   docSomaPlayer = val
 }
 
-let docCelulasPlayer
-const setDocCelulasPlayer = (val) => {
-  docCelulasPlayer = val
-}
-
 let docPontuacaoEnemy
 const setDocPontuacaoEnemy = (val) => {
   docPontuacaoEnemy = val
@@ -65,11 +60,6 @@ const setDocTabelaEnemy = (val) => {
 let docSomaEnemy
 const setDocSomaEnemy = (val) => {
   docSomaEnemy = val
-}
-
-let docCelulasEnemy
-const setDocCelulasEnemy = (val) => {
-  docCelulasEnemy = val
 }
 
 // FIM DAS VARIÁVEIS
@@ -179,6 +169,8 @@ const terminaJogo = () => {
   else {
     window.location.href = "../derrota.html"
   }
+
+  return
 }
 
 const jogadaPlayer = () => {
@@ -202,11 +194,9 @@ const jogadaPlayer = () => {
     if (checaFimDeJogo(tabela_player)) {
       terminaJogo()
     }
-    //...
 
     atualizaDadoEnemy()
     jogadaEnemy()
-    //...
 
     atualizaDadoJogador()
     return
@@ -284,10 +274,7 @@ const arraySoma = (arr) => {
   return soma
 }
 
-
 export {
-  setDocCelulasEnemy,
-  setDocCelulasPlayer,
   setDocColunaPlayer,
   setDocDadoEnemy,
   setDocDadoPlayer,
