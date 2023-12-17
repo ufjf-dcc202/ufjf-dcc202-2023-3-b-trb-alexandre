@@ -158,8 +158,27 @@ const atualizaEnemy = () => {
   });
 }
 
-const checaFimDeJogo = () => {
-  
+const checaFimDeJogo = (tabela) => {
+  let fimDeJogo = true
+
+  tabela.forEach((linha) => {
+    linha.forEach((valor) => {
+      if (valor == 0) {
+        fimDeJogo = false
+      }
+    })
+  })
+
+  return fimDeJogo
+}
+
+const terminaJogo = () => {
+  if (pontuacao_player > pontuacao_enemy) {
+    window.location.href = "../vitoria.html";
+  }
+  else {
+    window.location.href = "../derrota.html"
+  }
 }
 
 const jogadaPlayer = () => {
@@ -179,6 +198,10 @@ const jogadaPlayer = () => {
     pontuacao_enemy = arraySoma(linha_soma_enemy)
     atualizaDocPontuacao(docPontuacaoEnemy, pontuacao_enemy)
     atualizaDocSoma(docSomaEnemy, linha_soma_enemy)
+
+    if (checaFimDeJogo(tabela_player)) {
+      terminaJogo()
+    }
     //...
 
     atualizaDadoEnemy()
@@ -215,6 +238,10 @@ const jogadaEnemy = () => {
   pontuacao_player = arraySoma(linha_soma_player)
   atualizaDocPontuacao(docPontuacaoPlayer, pontuacao_player)
   atualizaDocSoma(docSomaPlayer, linha_soma_player)
+
+  if (checaFimDeJogo(tabela_enemy)) {
+    terminaJogo()
+  }
 }
 
 const geraColunaAleatoria = () => {
