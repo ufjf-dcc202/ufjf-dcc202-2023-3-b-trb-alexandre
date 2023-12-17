@@ -104,10 +104,12 @@ const jogadaPlayer = () => {
     tabela_player = atualizaTabela(dado_player, linhaVazia, coluna_player, tabela_player)
     atualizaDocTabelaPlayer(linhaVazia, coluna_player, dado_player)
 
-    
+    atualizaDadoJogador()
+
+    return
   }
 
-  atualizaDadoJogador()
+  alert(`Coluna ${coluna_player + 1} já está cheia. Selecione outra coluna.`)
 }
 
 
