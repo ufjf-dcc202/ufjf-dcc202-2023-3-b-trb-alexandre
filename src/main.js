@@ -10,8 +10,20 @@ import {
   setDocSomaPlayer,
   setDocTabelaEnemy,
   setDocTabelaPlayer,
-  atualizaDadoJogador
+  atualizaDadoJogador,
+  aumentarColuna,
+  diminuirColuna
 } from "./jogo.js"
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowRight') {
+    aumentarColuna()
+  }
+
+  if (event.key === 'ArrowLeft') {
+    diminuirColuna()
+  }
+});
 
 const docColunaPlayer = document.querySelector('#coluna_player');
 setDocColunaPlayer(docColunaPlayer)

@@ -89,11 +89,13 @@ const atualizaDadoJogador = () => {
 const aumentarColuna = () => {
   if (coluna_player < 3)
     coluna_player += 1
+  docColunaPlayer.innerHTML = coluna_player
 }
 
 const diminuirColuna = () => {
   if (coluna_player > 1)
     coluna_player -= 1
+  docColunaPlayer.innerHTML = coluna_player
 }
 
 
@@ -109,5 +111,7 @@ export {
   setDocSomaPlayer,
   setDocTabelaEnemy,
   setDocTabelaPlayer,
-  atualizaDadoJogador
+  atualizaDadoJogador,
+  aumentarColuna,
+  diminuirColuna
 } 
