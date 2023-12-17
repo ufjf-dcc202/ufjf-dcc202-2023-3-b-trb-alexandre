@@ -1,6 +1,4 @@
 import {
-  setDocCelulasEnemy,
-  setDocCelulasPlayer,
   setDocColunaPlayer,
   setDocDadoEnemy,
   setDocDadoPlayer,
