@@ -6,7 +6,7 @@ let tabela_player = [
 let linha_soma_player = [0, 0, 0]
 let dado_player = 0
 let pontuacao_player = 0
-let coluna_player = 1
+let coluna_player = 0
 
 let tabela_enemy = [
   [0, 0, 0],
@@ -74,7 +74,41 @@ const setDocCelulasEnemy = (val) => {
 
 // FIM DAS VARIÁVEIS
 
+const rodada = () => {
 
+}
+
+const encontraLinhaVazia = (coluna, tabela) => {
+  for (let i = 0; i < 3; i++) {
+    if (tabela[i][coluna] == 0)
+      return i
+  }
+
+  return -1
+}
+
+const atualizaTabela = (valor, linha, coluna, tabela) => {
+  tabela[linha][coluna] = valor
+
+  return tabela
+}
+
+const atualizaDocTabelaPlayer = (linha, coluna, valor) => {
+  docTabelaPlayer[linha * 3 + coluna].innerHTML = valor
+}
+
+const jogadaPlayer = () => {
+  let linhaVazia = encontraLinhaVazia(coluna_player, tabela_player)
+
+  if (linhaVazia != -1) {
+    tabela_player = atualizaTabela(dado_player, linhaVazia, coluna_player, tabela_player)
+    atualizaDocTabelaPlayer(linhaVazia, coluna_player, dado_player)
+
+    
+  }
+
+  atualizaDadoJogador()
+}
 
 
 const rolarDado = () => {
@@ -86,16 +120,21 @@ const atualizaDadoJogador = () => {
   docDadoPlayer.innerHTML = dado_player
 }
 
+const atualizaDadoEnemy = () => {
+  dado_enemy = rolarDado()
+  docDadoEnemy.innerHTML = dado_enemy
+}
+
 const aumentarColuna = () => {
-  if (coluna_player < 3)
+  if (coluna_player < 2)
     coluna_player += 1
-  docColunaPlayer.innerHTML = coluna_player
+  docColunaPlayer.innerHTML = coluna_player + 1
 }
 
 const diminuirColuna = () => {
-  if (coluna_player > 1)
+  if (coluna_player > 0)
     coluna_player -= 1
-  docColunaPlayer.innerHTML = coluna_player
+  docColunaPlayer.innerHTML = coluna_player + 1
 }
 
 
@@ -113,5 +152,6 @@ export {
   setDocTabelaPlayer,
   atualizaDadoJogador,
   aumentarColuna,
-  diminuirColuna
+  diminuirColuna,
+  jogadaPlayer
 } 
