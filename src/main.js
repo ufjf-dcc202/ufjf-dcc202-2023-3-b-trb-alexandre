@@ -15,7 +15,7 @@ import {
   diminuirColuna
 } from "./jogo.js"
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight') {
     aumentarColuna()
   }
