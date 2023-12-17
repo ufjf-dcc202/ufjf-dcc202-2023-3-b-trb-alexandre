@@ -12,7 +12,8 @@ import {
   setDocTabelaPlayer,
   atualizaDadoJogador,
   aumentarColuna,
-  diminuirColuna
+  diminuirColuna,
+  jogadaPlayer
 } from "./jogo.js"
 
 document.addEventListener('keydown', (event) => {
@@ -22,6 +23,10 @@ document.addEventListener('keydown', (event) => {
 
   if (event.key === 'ArrowLeft') {
     diminuirColuna()
+  }
+
+  if (event.key === ' ') {
+    jogadaPlayer()
   }
 });
 
