@@ -4,7 +4,7 @@ body, html {
 
 .main_container {
   min-height: 100%;
-  background-image: url('../images/floresta2.jpg');
+  background-image: url('../images/floresta2_compressed.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
