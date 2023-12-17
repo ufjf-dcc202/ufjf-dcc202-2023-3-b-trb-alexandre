@@ -97,21 +97,45 @@ const atualizaDocTabelaPlayer = (linha, coluna, valor) => {
   docTabelaPlayer[linha * 3 + coluna].innerHTML = valor
 }
 
+const atualizaDocTabelaEnemy = (linha, coluna, valor) => {
+  docTabelaEnemy[linha * 3 + coluna].innerHTML = valor
+}
+
 const jogadaPlayer = () => {
   let linhaVazia = encontraLinhaVazia(coluna_player, tabela_player)
 
   if (linhaVazia != -1) {
     tabela_player = atualizaTabela(dado_player, linhaVazia, coluna_player, tabela_player)
     atualizaDocTabelaPlayer(linhaVazia, coluna_player, dado_player)
+    //...
+
+    atualizaDadoEnemy()
+    jogadaEnemy()
+    //...
 
     atualizaDadoJogador()
-
     return
   }
 
   alert(`Coluna ${coluna_player + 1} já está cheia. Selecione outra coluna.`)
 }
 
+const jogadaEnemy = () => {
+  let linhaVazia = -1
+  let colunaAleatoria
+
+  while (linhaVazia == -1) {
+    colunaAleatoria = geraColunaAleatoria()
+    linhaVazia = encontraLinhaVazia(colunaAleatoria, tabela_enemy)
+  }
+
+  tabela_enemy = atualizaTabela(dado_enemy, linhaVazia, colunaAleatoria, tabela_enemy)
+  atualizaDocTabelaEnemy(linhaVazia, colunaAleatoria, dado_enemy)
+}
+
+const geraColunaAleatoria = () => {
+  return Math.floor(Math.random() * 3)
+}
 
 const rolarDado = () => {
   return Math.floor(Math.random() * 6) + 1
