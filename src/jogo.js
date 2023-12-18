@@ -256,12 +256,16 @@ const aumentarColuna = () => {
   if (coluna_player < 2)
     coluna_player += 1
   docColunaPlayer.innerHTML = coluna_player + 1
+
+  return coluna_player
 }
 
 const diminuirColuna = () => {
   if (coluna_player > 0)
     coluna_player -= 1
   docColunaPlayer.innerHTML = coluna_player + 1
+
+  return coluna_player
 }
 
 const arraySoma = (arr) => {

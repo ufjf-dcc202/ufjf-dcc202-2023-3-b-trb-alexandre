@@ -117,3 +117,16 @@ body, html {
   font-weight: bold;
   font-size: 2.5em;
 }
+
+
+#t_player[data-coluna="0"] .coluna1 {
+  border-color: red;
+}
+
+#t_player[data-coluna="1"] .coluna2 {
+  border-color: red;
+}
+
+#t_player[data-coluna="2"] .coluna3 {
+  border-color: red;
+}

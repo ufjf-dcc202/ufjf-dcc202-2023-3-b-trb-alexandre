@@ -14,13 +14,19 @@ import {
   jogadaPlayer
 } from "./jogo.js"
 
+const docColunaPlayer = document.querySelector('#coluna_player');
+setDocColunaPlayer(docColunaPlayer)
+
+const docTabela = document.querySelector('#t_player');
+docTabela.dataset.coluna = diminuirColuna()
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowRight') {
-    aumentarColuna()
+    docTabela.dataset.coluna = aumentarColuna()
   }
 
   if (event.key === 'ArrowLeft') {
-    diminuirColuna()
+    docTabela.dataset.coluna = diminuirColuna()
   }
 
   if (event.key === ' ') {
@@ -28,8 +34,6 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-const docColunaPlayer = document.querySelector('#coluna_player');
-setDocColunaPlayer(docColunaPlayer)
 
 const docPontuacaoPlayer = document.querySelector('#pontuacao_player');
 setDocPontuacaoPlayer(docPontuacaoPlayer)
